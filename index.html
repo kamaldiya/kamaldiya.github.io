@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nohariya Ballaji eMitra & CSC Centre</title>
+  <meta name="description" content="Nohariya Ballaji eMitra & CSC Centre - Aadhaar, PAN, NFSA, Jan Aadhaar, SSO, Bill Payment, सरकारी योजनाएं और अन्य ऑनलाइन सेवाएं। Owner: Kamal Diya" />
+  <style>
+    :root{
+      --primary:#0d47a1;
+      --secondary:#1565c0;
+      --accent:#ff9800;
+      --light:#f4f7fb;
+      --dark:#0b1f3a;
+      --white:#ffffff;
+      --text:#222;
+      --muted:#666;
+      --success:#25D366;
+      --shadow:0 8px 24px rgba(0,0,0,0.10);
+      --radius:18px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--light);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .topbar{
+      background:var(--dark);
+      color:#fff;
+      text-align:center;
+      padding:8px 12px;
+      font-size:14px;
+    }
+
+    header{
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:#fff;
+      padding:18px 14px 22px;
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .header-wrap{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .brand-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo{
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      background:#fff;
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:26px;
+      font-weight:bold;
+      box-shadow:0 4px 12px rgba(0,0,0,0.18);
+      flex-shrink:0;
+    }
+
+    .brand-text h1{
+      font-size:28px;
+      line-height:1.2;
+      margin-bottom:4px;
+    }
+
+    .brand-text p{
+      font-size:14px;
+      opacity:0.95;
+    }
+
+    .owner-badge{
+      background:#ffeb3b;
+      color:#111;
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:bold;
+      font-size:16px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.18);
+      white-space:nowrap;
+    }
+
+    .search-wrap{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .search-wrap input{
+      flex:1;
+      min-width:220px;
+      padding:14px 16px;
+      border:none;
+      border-radius:12px;
+      font-size:15px;
+      outline:none;
+    }
+
+    .search-wrap button{
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      padding:14px 18px;
+      border-radius:12px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    nav{
+      background:#08306b;
+      overflow:auto;
+      white-space:nowrap;
+      box-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    nav .nav-inner{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      gap:6px;
+      padding:8px 10px;
+    }
+
+    nav a{
+      color:#fff;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:15px;
+      font-weight:bold;
+    }
+
+    nav a:hover{
+      background:rgba(255,255,255,0.12);
+    }
+
+    .hero{
+      max-width:1200px;
+      margin:22px auto;
+      padding:0 14px;
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:22px;
+      align-items:center;
+    }
+
+    .hero-card{
+      background:linear-gradient(135deg, #eaf3ff, #ffffff);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card h2{
+      color:var(--primary);
+      font-size:34px;
+      line-height:1.25;
+      margin-bottom:12px;
+    }
+
+    .hero-card p{
+      color:#333;
+      margin-bottom:18px;
+      font-size:16px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:bold;
+      transition:0.2s ease;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .btn-accent{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero-image{
+      background:#fff;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-image img{
+      width:100%;
+      height:100%;
+      min-height:320px;
+      object-fit:cover;
+    }
+
+    .section{
+      max-width:1200px;
+      margin:0 auto 24px;
+      padding:0 14px;
+    }
+
+    .section-title{
+      font-size:28px;
+      color:var(--primary);
+      margin-bottom:16px;
+      padding-left:12px;
+      border-left:5px solid var(--accent);
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:18px;
+    }
+
+    .service-card{
+      background:#fff;
+      border-radius:var(--radius);
+      padding:22px 18px;
+      box-shadow:var(--shadow);
+      transition:0.2s ease;
+      border-top:5px solid var(--secondary);
+    }
+
+    .service-card:hover{
+      transform:translateY(-4px);
+    }
+
+    .service-icon{
+      width:52px;
+      height:52px;
+      border-radius:14px;
+      background:#eaf2ff;
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:24px;
+      margin-bottom:12px;
+    }
+
+    .service-card h3{
+      font-size:20px;
+      color:var(--primary);
+      margin-bottom:8px;
+    }
+
+    .service-card p{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .service-card a{
+      display:inline-block;
+      background:#eef4ff;
+      color:var(--primary);
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:bold;
+      font-size:14px;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .info-box{
+      background:#fff;
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .info-box h3{
+      color:var(--primary);
+      margin-bottom:12px;
+      font-size:22px;
+    }
+
+    .info-box ul{
+      list-style:none;
+    }
+
+    .info-box li{
+      padding:10px 0;
+      border-bottom:1px solid #eee;
+    }
+
+    .info-box li:last-child{
+      border-bottom:none;
+    }
+
+    .info-box a{
+      color:#222;
+      font-weight:600;
+    }
+
+    .contact-box{
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:#fff;
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-box h3{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .contact-list p{
+      margin-bottom:8px;
+      font-size:16px;
+    }
+
+    .contact-list strong{
+      color:#ffeb3b;
+    }
+
+    .footer{
+      background:var(--dark);
+      color:#fff;
+      margin-top:30px;
+      padding:22px 14px;
+      text-align:center;
+    }
+
+    .footer p{
+      font-size:14px;
+    }
+
+    .whatsapp-btn{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      background:var(--success);
+      color:#fff;
+      padding:14px 18px;
+      border-radius:999px;
+      font-weight:bold;
+      box-shadow:0 8px 22px rgba(0,0,0,0.22);
+      z-index:1200;
+    }
+
+    .search-note{
+      font-size:13px;
+      color:#e8f0ff;
+      margin-top:8px;
+    }
+
+    @media (max-width: 900px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+
+      .brand-text h1{
+        font-size:24px;
+      }
+
+      .hero-card h2{
+        font-size:28px;
+      }
+    }
+
+    @media (max-width: 600px){
+      .logo{
+        width:54px;
+        height:54px;
+        font-size:22px;
+      }
+
+      .brand-text h1{
+        font-size:21px;
+      }
+
+      .owner-badge{
+        font-size:14px;
+        padding:9px 14px;
+      }
+
+      .hero-card{
+        padding:22px 18px;
+      }
+
+      .hero-card h2{
+        font-size:24px;
+      }
+
+      .section-title{
+        font-size:24px;
+      }
+
+      .whatsapp-btn{
+        right:12px;
+        bottom:12px;
+        padding:12px 16px;
+        font-size:14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    Nohariya Ballaji eMitra & CSC Centre | ऑनलाइन सरकारी सेवाएं | तेज, आसान और भरोसेमंद
+  </div>
+
+  <header>
+    <div class="header-wrap">
+      <div class="brand-row">
+        <div class="brand">
+          <div class="logo">NB</div>
+          <div class="brand-text">
+            <h1>Nohariya Ballaji eMitra & CSC Centre</h1>
+            <p>आधार, PAN, NFSA, Jan Aadhaar, SSO, Bill Payment और अन्य सेवाएं</p>
+          </div>
+        </div>
+        <div class="owner-badge">Owner: Kamal Diya</div>
+      </div>
+
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="सेवा खोजें... जैसे Aadhaar, NFSA, PAN, Jan Aadhaar, SSO" />
+        <button onclick="searchService()">Search</button>
+      </div>
+      <div class="search-note">Search से official service link खुलेगा.</div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#home">होम</a>
+      <a href="#services">सेवाएं</a>
+      <a href="#links">महत्वपूर्ण लिंक</a>
+      <a href="#contact">संपर्क</a>
+      <a href="https://wa.me/919799404993" target="_blank">WhatsApp</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-card">
+      <h2>सभी सरकारी सेवाएं अब आपके पास</h2>
+      <p>
+        Nohariya Ballaji eMitra & CSC Centre पर आपको सरकारी और ऑनलाइन सेवाएं एक ही जगह मिलेंगी।
+        यहाँ से आप Aadhaar, PAN Card, Jan Aadhaar, NFSA, SSO, Bill Payment, exam forms और अन्य सेवाओं की जानकारी पा सकते हैं।
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#services">सेवाएं देखें</a>
+        <a class="btn btn-accent" href="https://wa.me/919799404993" target="_blank">WhatsApp करें</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80" alt="eMitra center banner image" />
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <h2 class="section-title">हमारी मुख्य सेवाएं</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🪪</div>
+        <h3>Aadhaar Services</h3>
+        <p>आधार से जुड़ी official जानकारी और सेवाओं के लिए official portal link.</p>
+        <a href="https://uidai.gov.in/" target="_blank">Open Link</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧾</div>
+        <h3>PAN Card</h3>
+        <p>PAN card आवेदन और संबंधित official online service link.</p>
+        <a href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" target="_blank">Open Link</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🍚</div>
+        <h3>NFSA / Ration Card</h3>
+        <p>राशन कार्ड और NFSA से जुड़ी official राजस्थान सेवाएं.</p>
+        <a href="https://food.raj.nic.in/" target="_blank">Open Link</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">👨‍👩‍👧</div>
+        <h3>Jan Aadhaar</h3>
+        <p>जन आधार कार्ड और परिवार सेवाओं के लिए official portal.</p>
+        <a href="https://janaadhaar.rajasthan.gov.in/" target="_blank">Open Link</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔐</div>
+        <h3>Rajasthan SSO</h3>
+        <p>राजस्थान government services login portal.</p>
+        <a href="https://sso.rajasthan.gov.in/" target="_blank">Open Link</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>eMitra Portal</h3>
+        <p>ई-मित्र पोर्टल से जुड़ी official जानकारी और online services.</p>
+        <a href="https://emitra.rajasthan.gov.in/" target="_blank">Open Link</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="links">
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>महत्वपूर्ण लिंक</h3>
+        <ul>
+          <li><a href="https://emitra.rajasthan.gov.in/" target="_blank">राजस्थान eMitra Portal</a></li>
+          <li><a href="https://sso.rajasthan.gov.in/" target="_blank">Rajasthan SSO Login</a></li>
+          <li><a href="https://uidai.gov.in/" target="_blank">UIDAI Official</a></li>
+          <li><a href="https://food.raj.nic.in/" target="_blank">NFSA Rajasthan</a></li>
+          <li><a href="https://janaadhaar.rajasthan.gov.in/" target="_blank">Jan Aadhaar Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="info-box" id="contact">
+        <h3>संपर्क जानकारी</h3>
+        <div class="contact-list">
+          <p><strong>Center Name:</strong> Nohariya Ballaji eMitra & CSC Centre</p>
+          <p><strong>Owner:</strong> Kamal Diya</p>
+          <p><strong>Mobile:</strong> <a href="tel:+919799404993" style="color:#222;">9799404993</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/919799404993" target="_blank" style="color:#222;">Chat Now</a></p>
+          <p><strong>Address:</strong> Diya Ka Mohalla, Village Nohariya, Post Mundoti, Tehsil Kishangarh, District Ajmer, Rajasthan - 305801</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="contact-box">
+      <h3>हमसे तुरंत संपर्क करें</h3>
+      <p>अगर आपको किसी सेवा की जानकारी चाहिए, तो WhatsApp पर संपर्क करें।</p>
+      <br>
+      <a class="btn btn-accent" href="https://wa.me/919799404993" target="_blank">WhatsApp Message</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Nohariya Ballaji eMitra & CSC Centre | Owner: Kamal Diya</p>
+  </footer>
+
+  <a class="whatsapp-btn" href="https://wa.me/919799404993" target="_blank">💬 WhatsApp</a>
+
+  <script>
+    function searchService() {
+      const input = document.getElementById("searchInput").value.toLowerCase().trim();
+
+      if (input.includes("aadhaar") || input.includes("आधार")) {
+        window.open("https://uidai.gov.in/", "_blank");
+      } else if (input.includes("pan")) {
+        window.open("https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html", "_blank");
+      } else if (input.includes("nfsa") || input.includes("ration") || input.includes("राशन")) {
+        window.open("https://food.raj.nic.in/", "_blank");
+      } else if (input.includes("jan aadhaar") || input.includes("janaadhaar") || input.includes("जन आधार")) {
+        window.open("https://janaadhaar.rajasthan.gov.in/", "_blank");
+      } else if (input.includes("sso")) {
+        window.open("https://sso.rajasthan.gov.in/", "_blank");
+      } else if (input.includes("emitra") || input.includes("ईमित्र") || input.includes("ई-मित्र")) {
+        window.open("https://emitra.rajasthan.gov.in/", "_blank");
+      } else if (input === "") {
+        alert("कृपया कोई service name लिखें.");
+      } else {
+        alert("Service नहीं मिली. Aadhaar, PAN, NFSA, Jan Aadhaar, SSO या eMitra लिखकर search करें.");
+      }
+    }
+
+    document.getElementById("searchInput").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        searchService();
+      }
+    });
+  </script>
+
+</body>
+  </html>
